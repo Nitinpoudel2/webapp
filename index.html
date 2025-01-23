@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Playground</title>
+</head>
+
+<body>
+    <div class="root">
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script type="text/babel">
+            const header = (
+                <header>
+                    <h1> Welcome to React Tutorial </h1>
+                    <h2> Get started with React + Typescript </h2>
+                    <p> Udemy Course </p>
+
+                </header>
+            );
+
+            const main = (
+                <main>
+                    <p> Prerequisite to React </p>
+                    <ul>
+                        <li> HTML </li>
+                        <li> CSS </li>
+                        <li> JavaScript </li>
+                    </ul>
+                </main>
+
+            );
+            const footer = (
+                <footer>
+                    <p> &copy; 2023 React Tutorial by Nitin Paudel </p>
+                </footer>
+            );
+            const app = (
+                <> 
+                {header}
+                {main}
+                {footer}
+                </>
+            );
+            const rootElement = document.querySelector('.root');
+            ReactDOM.render(app, rootElement);
+        </script>
+    </div>
+</body>
+
+</html>
