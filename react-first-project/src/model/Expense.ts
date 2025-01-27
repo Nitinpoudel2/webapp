@@ -1,7 +1,7 @@
 export interface Expense{
 
     id?: number;
-    expenseID: number;
+    expenseId: number;
     name: string;
     note: string;
     amount: number;
