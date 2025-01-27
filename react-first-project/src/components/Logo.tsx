@@ -1,8 +1,9 @@
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <a className="navbar-brand" href="#">
+    <Link className="navbar-brand" to="/">
       <div
         style={{
           backgroundColor: "white",
@@ -19,7 +20,7 @@ const Logo = () => {
           className="rounded-circle"
         />
       </div>
-    </a>
+    </Link>
   );
 };
 
