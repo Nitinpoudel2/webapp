@@ -7,14 +7,15 @@ const Dashboard = () => {
   const loggedInUser : string ="nitinpaudel.com";
 
   const { expenses, error, isLoading } = useExpenses();
-  const totalExpenses = expenses.reduce((acc: number, expense: Expense) => acc + expense.amount, 0) ;
+  const totalExpenses = expenses.reduce((acc: number, expense: Expense) => acc + expense.amount, 0);
+
   return (
     <div className="container">
       {isLoading && <p> Loading.....</p>}
       {error && <p>{error}</p>}
       <DashboardStatus loggedInUser = {loggedInUser} totalExpenses=  {totalExpenses} /> 
       <hr />
-      <ExpenseList expenses={expenses} />
+            <ExpenseList expenses={expenses} />
     </div>
   );
 };
