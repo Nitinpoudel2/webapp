@@ -8,7 +8,7 @@ import { deleteExpenseByExpenseId } from "../../services/expense-service";
 
 
 const ExpenseDetails = () => {
-  const { expenseId } = useParams<{ expenseId: string }>();
+  const {expenseId} = useParams<{ expenseId: string }>();
   const [showDialog, setShowDialog] = useState<boolean>(false);
   const navigate = useNavigate();
 
@@ -42,7 +42,7 @@ const ExpenseDetails = () => {
       {errors && <p className="text-danger">{errors}</p>}
       <div className="d-flex flex-row-reverse mb-2">
         <button className="btn btn-sm btn-danger" onClick= { () => setShowDialog(true)}>Delete</button>
-        <button className="btn btn-sm btn-warning mx-2">Edit</button>
+        <button className="btn btn-sm btn-warning mx-2" onClick={() => navigate(`/edit/${expenseId}`) }>Edit</button>
         <Link className="btn btn-sm btn-secondary" to="/">
           Back
         </Link>

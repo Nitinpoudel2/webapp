@@ -1,30 +1,49 @@
-
-
 interface Props {
-    options: string[];
-    name: string;
-    id: string;
-    value: string;
-    onChange: (e: React.FormEvent<HTMLSelectElement>) => void;
-    onBlur: (e: React.FormEvent<HTMLSelectElement>) => void;
-    label: string;
-    error? : string, 
-    touched? : boolean;
+  options: string[];
+  name: string;
+  id: string;
+  value: string;
+  onChange: (e: React.FormEvent<HTMLSelectElement>) => void;
+  onBlur: (e: React.FormEvent<HTMLSelectElement>) => void;
+  label: string;
+  error?: string;
+  touched?: boolean;
 }
 
-const Dropdown = ({options, id, name, value, onChange, onBlur, label, error, touched }: Props) => {
+const Dropdown = ({
+  options,
+  id,
+  name,
+  value,
+  onChange,
+  onBlur,
+  label,
+  error,
+  touched,
+}: Props) => {
   return (
     <div className="mb-3">
-        <label htmlFor={id} className="form-control">
-            {label}
-        </label>
-        <select name={name} id={id} className="form-control" onChange={onChange} onBlur={onBlur}>
-            <option value={value} label="Select Category" />
-            {options.map(option => <option key={option} value={option} label={option}></option>)}
-        </select>
-        {touched && error ? <div className="text-danger fst-italic">{error}</div>: null }
+      <label htmlFor={id} className="form-control">
+        {label}
+      </label>
+      <select
+        name={name}
+        id={id}
+        className="form-control"
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
+      >
+        <option value="" label="Select Category" />
+        {options.map((option) => (
+          <option key={option} value={option} label={option}></option>
+        ))}
+      </select>
+      {touched && error ? (
+        <div className="text-danger fst-italic">{error}</div>
+      ) : null}
     </div>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;
