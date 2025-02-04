@@ -14,7 +14,7 @@ export const useRegister = () => {
                         setToast("Profile is successfully created");
                     }
                 })
-                .catch((error) => console.log(error))
+                .catch((error) => setError(error))
                 .finally(() => setLoader(false));
     }
     return { error, isLoading, signup, toast};

@@ -6,7 +6,6 @@ const useExpenses = () => {
     const [expenses, setExpenses] = useState<Expense[]>([]);
     const [error, setErrors] = useState<string>("");
     const [isLoading, setLoader] = useState<boolean>(false);
-  
     useEffect(() => {
       //making a api call to the backend
       setLoader(true);
