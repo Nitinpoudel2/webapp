@@ -10,8 +10,8 @@ const useExpenseByExpenseId = (expenseId : string ) => {
         useEffect(() => {
          setLoader(true);
             getExpenseByExpenseId(expenseId)
-           .then(response => setExpense(response.data))
-           .catch(error => {
+           .then((response) => setExpense(response.data))
+           .catch((error) => {
             setErrors(error.message);
             console.log(error);
           })
