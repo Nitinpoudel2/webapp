@@ -2,16 +2,20 @@ import { AuthRequest } from './../model/AuthRequest';
 import { useState } from "react";
 import { authenticate } from "../services/auth-service";
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from './AuthContext';
 
 export const useLogin = () => {
     const [error, setError] = useState<string>("");
     const [isLoading, setLoader] = useState<boolean>(false);
     const navigate = useNavigate();
+    const {updateAuth} = useAuthContext();
+
     const login = (authRequest: AuthRequest) => {
         setLoader(true);
       authenticate(authRequest)
         .then((response) => {
           localStorage.setItem("user", JSON.stringify(response.data));
+          updateAuth(true);
           navigate("/");
         })
         .catch((error) => {
