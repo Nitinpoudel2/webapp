@@ -25,7 +25,7 @@ const ExpenseList = ({ expenses }: Props) => {
                 </div>
                 <div className="card-subtitle">
                   <span className="badge rounded-pill app-primary-bg-color">
-                    {CurrencyUtils.formatToDollar(expense.amount)}
+                    {CurrencyUtils.formatToDollar(parseFloat(expense.amount))}
                   </span>
                 </div>
               </div>

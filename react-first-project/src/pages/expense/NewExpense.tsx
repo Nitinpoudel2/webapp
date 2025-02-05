@@ -18,7 +18,7 @@ const NewExpense = () => {
   const [initialValues, setInitialValues] = useState<Expense>({
     expenseId: 0,
     name: "",
-    amount: 0,
+    amount: "",
     note: "",
     category: "",
     date: new Date().toISOString().split("T")[0],
@@ -28,7 +28,7 @@ const NewExpense = () => {
       setLoader(true);
       getExpenseByExpenseId(expenseId)
         .then((response) => {
-          if(response && response.data){
+          if (response && response.data) {
             setInitialValues(response.data);
           }
         })
@@ -38,13 +38,13 @@ const NewExpense = () => {
   }, [expenseId]);
   const formik = useFormik({
     initialValues,
-    enableReinitialize:true,
+    enableReinitialize: true,
     onSubmit: (values: Expense) => {
       saveOrUpdateExpense(values)
         .then((response) => {
           if (response && response.status === 201) {
             navigate("/");
-          } else if (response && response.status === 200){
+          } else if (response && response.status === 200) {
             navigate(`/view/${expenseId}`);
           }
         })
@@ -139,10 +139,17 @@ const NewExpense = () => {
             touched={formik.touched.category}
           />
           <button
-            className="btn btn-sm app-primary-bg-color btn-outline-light"
+            className="btn btn-sm app-primary-bg-color btn-outline-light mx-1"
             type="submit"
           >
             Save{" "}
+          </button>
+          <button
+            className="btn btn-sm app-primary-bg-color btn-outline-light"
+            type="reset"
+            onClick={formik.handleReset}
+          >
+            Reset
           </button>
         </form>
       </div>
