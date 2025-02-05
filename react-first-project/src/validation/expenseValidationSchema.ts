@@ -6,7 +6,7 @@ const expenseValidationSchema = Yup.object({
     amount: Yup.number()
         .required("Expense amount is required")
         .positive("Expense amount must be greater than 0"),
-    date: Yup.date().required("Expense date is required"),
+    date: Yup.date().required("Expense date is required").max(new Date(),"You cannot select future dates"),
     category: Yup.string().required("Expense category is required")
 });
 

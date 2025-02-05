@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   const { expenses, error, isLoading } = useExpenses();
   const totalExpenses = expenses.reduce(
-    (acc: number, expense: Expense) => acc + expense.amount,
+    (acc: number, expense: Expense) => acc + parseFloat(expense.amount),
     0
   );
 
